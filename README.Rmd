@@ -9,14 +9,14 @@ knitr::opts_chunk$set(out.width = 830, out.height = 415)
 # Imgixr
 
 [`{htmlwidgets}`] bindings for the [imgix rendering API].
-Use images from the API in your shiny apps and rmarkdown documents.
+Use images from the API in your [`{shiny}`] apps and [`{rmarkdown}`] documents.
 
 ## Installation
 
-This package can be installed directly from github using the `{remotes}` package
+This package can be installed directly from github using the [`{remotes}`] package
 
 ```r
-remotes::install_github("GregorDeCillia/imgixr")
+remotes::install_github("r-webutils/imgixr")
 ```
 
 ## Usage
@@ -77,8 +77,8 @@ This means that `imgixr` objects can be embedded into `tagList`s and other ui de
 
 ```{r}
 htmltools::div(
-    imgixr(2745224, mask = "ellipse", width = 400, height = 400),
-    imgixr('https://images.pexels.com/photos/45848/kumamoto-japan-aso-cloud-45848.jpeg', 
+  imgixr(2745224, mask = "ellipse", width = 400, height = 400),
+  imgixr('https://images.pexels.com/photos/45848/kumamoto-japan-aso-cloud-45848.jpeg', 
            mask = "ellipse", width = 400, height = 400)
 )
 ```
@@ -121,11 +121,15 @@ See https://docs.imgix.com/apis/rendering for the full API documentation.
 ```{r}
 imgixr('https://ix-www.imgix.net/solutions/kingfisher.jpg',
        rect = '2100,600,1800,900')
-imgixr(2837863, sepia = 50, height = 800, fit = "clip")
+imgixr('https://assets.imgix.net/trim-ex4.jpg', monochrome = 787878)
 imgixr("https://images.unsplash.com/photo-1523712999610-f77fbcfc3843", 
        duotone = "000080,FA8072")
+imgixr(1048273, fit = "clip")
 ```
 
 [imgix rendering API]: https://docs.imgix.com/apis/rendering
 [`{htmlwidgets}`]: https://www.htmlwidgets.org/
 [`{htmltools}`]: https://rstudio.github.io/htmltools/
+[`{rmarkdown}`]: https://rmarkdown.rstudio.com/
+[`{shiny}`]: https://shiny.rstudio.com/
+[`{remotes}`]: https://remotes.r-lib.org/

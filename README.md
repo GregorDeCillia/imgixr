@@ -3,15 +3,16 @@
 
 [`{htmlwidgets}`](https://www.htmlwidgets.org/) bindings for the [imgix
 rendering API](https://docs.imgix.com/apis/rendering). Use images from
-the API in your shiny apps and rmarkdown documents.
+the API in your [`{shiny}`](https://shiny.rstudio.com/) apps and
+[`{rmarkdown}`](https://rmarkdown.rstudio.com/) documents.
 
 ## Installation
 
-This package can be installed directly from github using the `{remotes}`
-package
+This package can be installed directly from github using the
+[`{remotes}`](https://remotes.r-lib.org/) package
 
 ``` r
-remotes::install_github("GregorDeCillia/imgixr")
+remotes::install_github("r-webutils/imgixr")
 ```
 
 ## Usage
@@ -90,8 +91,8 @@ other ui definitions that are built with the
 
 ``` r
 htmltools::div(
-    imgixr(2745224, mask = "ellipse", width = 400, height = 400),
-    imgixr('https://images.pexels.com/photos/45848/kumamoto-japan-aso-cloud-45848.jpeg', 
+  imgixr(2745224, mask = "ellipse", width = 400, height = 400),
+  imgixr('https://images.pexels.com/photos/45848/kumamoto-japan-aso-cloud-45848.jpeg', 
            mask = "ellipse", width = 400, height = 400)
 )
 ```
@@ -232,10 +233,10 @@ imgixr('https://ix-www.imgix.net/solutions/kingfisher.jpg',
 <img src="https://ix-www.imgix.net/solutions/kingfisher.jpg?fit=crop&amp;rect=2100,600,1800,900&amp;h=415&amp;w=830"/>
 
 ``` r
-imgixr(2837863, sepia = 50, height = 800, fit = "clip")
+imgixr('https://assets.imgix.net/trim-ex4.jpg', monochrome = 787878)
 ```
 
-<img src="https://images.pexels.com/photos/2837863/pexels-photo-2837863.jpeg?fit=clip&amp;sepia=50&amp;h=800&amp;w=830"/>
+<img src="https://assets.imgix.net/trim-ex4.jpg?fit=crop&amp;monochrome=787878&amp;h=415&amp;w=830"/>
 
 ``` r
 imgixr("https://images.unsplash.com/photo-1523712999610-f77fbcfc3843", 
@@ -243,3 +244,9 @@ imgixr("https://images.unsplash.com/photo-1523712999610-f77fbcfc3843",
 ```
 
 <img src="https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?fit=crop&amp;duotone=000080,FA8072&amp;h=415&amp;w=830"/>
+
+``` r
+imgixr(1048273, fit = "clip")
+```
+
+<img src="https://images.pexels.com/photos/1048273/pexels-photo-1048273.jpeg?fit=clip&amp;h=415&amp;w=830"/>
