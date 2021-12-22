@@ -1,7 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^R/json\.R$
-^R/palette\.R$
 ^LICENSE\.md$
 ^README\.Rmd$
 ^README\.md$

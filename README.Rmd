@@ -95,6 +95,14 @@ To directly download an image, use `imgixr_download()`
 imgixr_download(imgixr(2339009), file = "awesome_picture.jpeg")
 ```
 
+## Palette
+
+`imgixr_palette()` allows you to extract the most dominant colors from an image.
+
+```{r}
+imgixr_palette(2339009)
+```
+
 ## Metadata
 
 To get metadata about an image, use `imgixr_meta()`

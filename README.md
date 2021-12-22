@@ -108,6 +108,21 @@ use `imgixr_download()`
 imgixr_download(imgixr(2339009), file = "awesome_picture.jpeg")
 ```
 
+## Palette
+
+`imgixr_palette()` allows you to extract the most dominant colors from
+an image.
+
+``` r
+imgixr_palette(2339009)
+```
+
+    ## [ imgixr color palette ]
+    ## List of 3
+    ##  $ average_luminance: num 0.261
+    ##  $ colors           : chr [1:6] "#fede10" "#e53414" "#a78c6e" "#786578" ...
+    ##  $ dominant_colors  : chr [1:6] "#fede10" "#abd5bc" "#57a5a5" "#0b4752" ...
+
 ## Metadata
 
 To get metadata about an image, use `imgixr_meta()`
