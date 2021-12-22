@@ -1,0 +1,18 @@
+Package: imgixr
+Type: Package
+Title: Htmlwidgets Bindings for the Imgix Rendering API
+Version: 0.1.0
+Author: Gregor de Cillia
+Maintainer: Gregor de Cillia <de.cillia.gregor@gmail.com>
+Description: Include images from directly from the API to your rmarkdown and
+  shiny projects.
+Encoding: UTF-8
+License: MIT
+LazyData: true
+Imports: 
+    htmltools,
+    htmlwidgets
+RoxygenNote: 7.1.2
+Suggests: 
+    digest,
+    knitr
