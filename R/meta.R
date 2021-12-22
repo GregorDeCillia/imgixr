@@ -23,6 +23,6 @@ imgixr_meta <- function(img) {
 print.imgixr_meta <- function(x, ...) {
   content <- httr::content(x$response)
   cat("[ imgixr metadata ]\n")
-  str(content)
+  utils::str(content)
   invisible(x)
 }
