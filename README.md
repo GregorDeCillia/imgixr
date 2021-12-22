@@ -90,11 +90,16 @@ other ui definitions that are built with the
 
 ``` r
 htmltools::div(
-  style = "background-color: #ddd; padding: 15px;",
-  htmltools::h2("A nice image"),
-  imgixr(2339009)
+    imgixr(2745224, mask = "ellipse", width = 400, height = 400),
+    imgixr('https://images.pexels.com/photos/45848/kumamoto-japan-aso-cloud-45848.jpeg', 
+           mask = "ellipse", width = 400, height = 400)
 )
 ```
+
+<div>
+<img src="https://images.pexels.com/photos/2745224/pexels-photo-2745224.jpeg?fit=crop&amp;mask=ellipse&amp;h=400&amp;w=400"/>
+<img src="https://images.pexels.com/photos/45848/kumamoto-japan-aso-cloud-45848.jpeg?fit=crop&amp;mask=ellipse&amp;h=400&amp;w=400"/>
+</div>
 
 This mode is currently used for all html-based rmarkdown formats.
 
@@ -214,17 +219,23 @@ imgixr_meta(2422497)
 
 ## More examples
 
+The rendering API exposes a lot of parameters that can be used to modify
+images. All parameters to `imgixr()` are directly sent as query
+parameters to the API. See <https://docs.imgix.com/apis/rendering> for
+the full API documentation.
+
+``` r
+imgixr('https://ix-www.imgix.net/solutions/kingfisher.jpg',
+       rect = '2100,600,1800,900')
+```
+
+<img src="https://ix-www.imgix.net/solutions/kingfisher.jpg?fit=crop&amp;rect=2100,600,1800,900&amp;h=415&amp;w=830"/>
+
 ``` r
 imgixr(2837863, sepia = 50, height = 800, fit = "clip")
 ```
 
 <img src="https://images.pexels.com/photos/2837863/pexels-photo-2837863.jpeg?fit=clip&amp;sepia=50&amp;h=800&amp;w=830"/>
-
-``` r
-imgixr(2745224, mask = "ellipse", width = 600, height = 600)
-```
-
-<img src="https://images.pexels.com/photos/2745224/pexels-photo-2745224.jpeg?fit=crop&amp;mask=ellipse&amp;h=600&amp;w=600"/>
 
 ``` r
 imgixr("https://images.unsplash.com/photo-1523712999610-f77fbcfc3843", 
