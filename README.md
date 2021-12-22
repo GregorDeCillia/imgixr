@@ -12,12 +12,12 @@ This package can be installed directly from github using the
 [`{remotes}`](https://remotes.r-lib.org/) package
 
 ``` r
-remotes::install_github("r-webutils/imgix")
+remotes::install_github("r-webutils/imgix-r")
 ```
 
 ## Usage
 
-Images can be defined with the `imgx()` function. You can either enter a
+Images can be defined with the `imgix()` function. You can either enter a
 full URL or an id from <https://pexels.com>.
 
 ``` r
