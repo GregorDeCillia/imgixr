@@ -73,7 +73,7 @@ on the context.
 The default mode. The widget is shown using the
 [`{htmlwidgets}`](https://www.htmlwidgets.org/) interface. Typical
 usecases are shiny applications and the rstudio viewer pane. Use
-`imgixr_as_tag()` to directly generate the widget object.
+`imgixr_as_widget()` to directly generate the widget object.
 
 ``` r
 widget <- imgixr_as_widget(imgixr(2339009))
@@ -81,9 +81,12 @@ widget <- imgixr_as_widget(imgixr(2339009))
 
 #### Mode 2: html tag
 
-The image is rendered to an html tag using the `{htmltools}` package.
-The `htmltools::as.tag()` is implemented so `imgixr` objects can be
-embedded into `tagList`s.
+The image is rendered to an html tag using the
+[`{htmltools}`](https://rstudio.github.io/htmltools/) package. The
+`htmltools::as.tag()` generic is implemented and returns an `<img>` tag.
+This means that `imgixr` objects can be embedded into `tagList`s and
+other ui definitions that are built with the
+[`{htmltools}`](https://rstudio.github.io/htmltools/) package.
 
 ``` r
 htmltools::div(
