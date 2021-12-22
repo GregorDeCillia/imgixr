@@ -108,6 +108,95 @@ use `imgixr_download()`
 imgixr_download(imgixr(2339009), file = "awesome_picture.jpeg")
 ```
 
+## Metadata
+
+To get metadata about an image, use `imgixr_meta()`
+
+``` r
+imgixr_meta(2422497)
+```
+
+    ## [ imgixr metadata ]
+    ## List of 15
+    ##  $ ColorModel    : chr "RGB"
+    ##  $ Exif          :List of 38
+    ##   ..$ SerialNumber            : chr "372051004311"
+    ##   ..$ FocalPlaneXResolution   : int 1520
+    ##   ..$ WhiteBalance            : int 0
+    ##   ..$ CustomRendered          : int 0
+    ##   ..$ ExposureProgram         : int 1
+    ##   ..$ FlashCompensation       : int 0
+    ##   ..$ SubsecTimeDigitized     : chr "22"
+    ##   ..$ ExposureTime            : num 0.00625
+    ##   ..$ DateTimeOriginal        : chr "2019:02:05 19:07:54"
+    ##   ..$ BodySerialNumber        : chr "372051004311"
+    ##   ..$ LensSpecification       :List of 4
+    ##   .. ..$ : int 35
+    ##   .. ..$ : int 35
+    ##   .. ..$ : int 0
+    ##   .. ..$ : int 0
+    ##   ..$ MaxApertureValue        : int 1
+    ##   ..$ PixelXDimension         : int 3154
+    ##   ..$ ExposureBiasValue       : int 0
+    ##   ..$ DateTimeDigitized       : chr "2019:02:05 19:07:54"
+    ##   ..$ LensModel               : chr "35mm F1.4 DG HSM | Art 012"
+    ##   ..$ LensID                  : int 368
+    ##   ..$ ExposureMode            : int 1
+    ##   ..$ ExifVersion             :List of 2
+    ##   .. ..$ : int 2
+    ##   .. ..$ : int 3
+    ##   ..$ FNumber                 : num 1.8
+    ##   ..$ SceneCaptureType        : int 0
+    ##   ..$ ColorSpace              : int 1
+    ##   ..$ LensSerialNumber        : chr "0000000000"
+    ##   ..$ SensitivityType         : int 2
+    ##   ..$ ImageNumber             : int 0
+    ##   ..$ ISOSpeedRatings         :List of 1
+    ##   .. ..$ : int 640
+    ##   ..$ RecommendedExposureIndex: int 640
+    ##   ..$ FocalPlaneResolutionUnit: int 3
+    ##   ..$ ShutterSpeedValue       : num 7.32
+    ##   ..$ Firmware                : chr "1.1.6"
+    ##   ..$ SubsecTimeOriginal      : chr "22"
+    ##   ..$ MeteringMode            : int 5
+    ##   ..$ Flash                   : int 16
+    ##   ..$ LensInfo                :List of 4
+    ##   .. ..$ : int 35
+    ##   .. ..$ : int 35
+    ##   .. ..$ : int 0
+    ##   .. ..$ : int 0
+    ##   ..$ PixelYDimension         : int 3942
+    ##   ..$ FocalLength             : int 35
+    ##   ..$ ApertureValue           : num 1.7
+    ##   ..$ FocalPlaneYResolution   : int 1520
+    ##  $ Orientation   : int 1
+    ##  $ Depth         : int 8
+    ##  $ Output        : Named list()
+    ##  $ Content-Type  : chr "image/jpeg"
+    ##  $ JFIF          :List of 1
+    ##   ..$ IsProgressive: logi TRUE
+    ##  $ DPIWidth      : int 240
+    ##  $ Content-Length: chr "9988613"
+    ##  $ IPTC          :List of 4
+    ##   ..$ DigitalCreationTime: chr "190754"
+    ##   ..$ DigitalCreationDate: chr "20190205"
+    ##   ..$ TimeCreated        : chr "190754"
+    ##   ..$ DateCreated        : chr "20190205"
+    ##  $ DPIHeight     : int 240
+    ##  $ TIFF          :List of 9
+    ##   ..$ ResolutionUnit           : int 2
+    ##   ..$ Orientation              : int 1
+    ##   ..$ Software                 : chr "Adobe Photoshop CS6 (Macintosh)"
+    ##   ..$ YResolution              : int 240
+    ##   ..$ DateTime                 : chr "2019:02:06 10:49:44"
+    ##   ..$ Make                     : chr "Canon"
+    ##   ..$ XResolution              : int 240
+    ##   ..$ Model                    : chr "Canon EOS 6D"
+    ##   ..$ PhotometricInterpretation: int 2
+    ##  $ PixelWidth    : int 3154
+    ##  $ PixelHeight   : int 3942
+    ##  $ ProfileName   : chr "sRGB IEC61966-2.1"
+
 ## More examples
 
 ``` r

@@ -95,6 +95,15 @@ To directly download an image, use `imgixr_download()`
 imgixr_download(imgixr(2339009), file = "awesome_picture.jpeg")
 ```
 
+## Metadata
+
+To get metadata about an image, use `imgixr_meta()`
+
+```{r}
+imgixr_meta(2422497)
+```
+
+
 ## More examples
 
 ```{r}
