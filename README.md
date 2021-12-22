@@ -24,13 +24,13 @@ library(imgixr)
 imgixr(2339009)
 ```
 
-<img src="https://images.pexels.com/photos/2339009/pexels-photo-2339009.jpeg?fit=crop&amp;h=400&amp;w=800"/>
+<img src="https://images.pexels.com/photos/2339009/pexels-photo-2339009.jpeg?fit=crop&amp;h=415&amp;w=830"/>
 
 ``` r
 imgixr("https://images.unsplash.com/photo-1459478309853-2c33a60058e7")
 ```
 
-<img src="https://images.unsplash.com/photo-1459478309853-2c33a60058e7?fit=crop&amp;h=400&amp;w=800"/>
+<img src="https://images.unsplash.com/photo-1459478309853-2c33a60058e7?fit=crop&amp;h=415&amp;w=830"/>
 
 ## API Parameters
 
@@ -41,14 +41,14 @@ automatically converted to hyphens.
 imgixr(2422497, rot = 30)
 ```
 
-<img src="https://images.pexels.com/photos/2422497/pexels-photo-2422497.jpeg?fit=crop&amp;rot=30&amp;h=400&amp;w=800"/>
+<img src="https://images.pexels.com/photos/2422497/pexels-photo-2422497.jpeg?fit=crop&amp;rot=30&amp;h=415&amp;w=830"/>
 
 ``` r
 imgixr(1529360, txt = "Enjoy the rain", txt_size = 100, txt_color = "ddd", 
        txt_align = "center,middle", blur = 20)
 ```
 
-<img src="https://images.pexels.com/photos/1529360/pexels-photo-1529360.jpeg?fit=crop&amp;txt=Enjoy%20the%20rain&amp;txt-size=100&amp;txt-color=ddd&amp;txt-align=center,middle&amp;blur=20&amp;h=400&amp;w=800"/>
+<img src="https://images.pexels.com/photos/1529360/pexels-photo-1529360.jpeg?fit=crop&amp;txt=Enjoy%20the%20rain&amp;txt-size=100&amp;txt-color=ddd&amp;txt-align=center,middle&amp;blur=20&amp;h=415&amp;w=830"/>
 
 ## Shiny
 
@@ -218,7 +218,7 @@ imgixr_meta(2422497)
 imgixr(2837863, sepia = 50, height = 800, fit = "clip")
 ```
 
-<img src="https://images.pexels.com/photos/2837863/pexels-photo-2837863.jpeg?fit=clip&amp;sepia=50&amp;h=800&amp;w=800"/>
+<img src="https://images.pexels.com/photos/2837863/pexels-photo-2837863.jpeg?fit=clip&amp;sepia=50&amp;h=800&amp;w=830"/>
 
 ``` r
 imgixr(2745224, mask = "ellipse", width = 600, height = 600)
@@ -231,4 +231,4 @@ imgixr("https://images.unsplash.com/photo-1523712999610-f77fbcfc3843",
        duotone = "000080,FA8072")
 ```
 
-<img src="https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?fit=crop&amp;duotone=000080,FA8072&amp;h=400&amp;w=800"/>
+<img src="https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?fit=crop&amp;duotone=000080,FA8072&amp;h=415&amp;w=830"/>

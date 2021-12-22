@@ -3,7 +3,7 @@ output: github_document
 ---
 
 ```{r, include=FALSE}
-knitr::opts_chunk$set(out.width = 800, out.height = 400)
+knitr::opts_chunk$set(out.width = 830, out.height = 415)
 ```
 
 # Imgixr
