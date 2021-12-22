@@ -1,3 +1,6 @@
+#' @name imgixr-shiny
+#' @param x an object of class `imgixr`
+#' @export
 imgixr_as_widget <- function(x) {
   htmlwidgets::createWidget(
     name = 'imgixr_widget',

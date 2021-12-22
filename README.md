@@ -60,6 +60,9 @@ output$imgixr <- renderImgixr({
 })
 ```
 
+The sizing must be defined in the corresponding output function
+`imgixrOutput()`.
+
 ## Rendering Modes
 
 This packages uses three different strategies to render images depending
@@ -69,19 +72,38 @@ on the context.
 
 The default mode. The widget is shown using the
 [`{htmlwidgets}`](https://www.htmlwidgets.org/) interface. Typical
-usecases are shiny applications and the rstudio viewer pane.
+usecases are shiny applications and the rstudio viewer pane. Use
+`imgixr_as_tag()` to directly generate the widget object.
+
+``` r
+widget <- imgixr_as_widget(imgixr(2339009))
+```
 
 #### Mode 2: html tag
 
-The image is rendered to an html tag using to the `{htmltools}` package.
+The image is rendered to an html tag using the `{htmltools}` package.
 The `htmltools::as.tag()` is implemented so `imgixr` objects can be
-embedded into `tagList`s. This mode is currently used for all html-based
-rmarkdown formats.
+embedded into `tagList`s.
+
+``` r
+htmltools::div(
+  style = "background-color: #ddd; padding: 15px;",
+  htmltools::h2("A nice image"),
+  imgixr(2339009)
+)
+```
+
+This mode is currently used for all html-based rmarkdown formats.
 
 #### Mode 3: image file
 
 The image is downloaded to a local image and referenced via a local
-path. For LaTex-based rmarkdown formats
+path. For LaTeX-based rmarkdown formats. To directly download an image,
+use `imgixr_download()`
+
+``` r
+imgixr_download(imgixr(2339009), file = "awesome_picture.jpeg")
+```
 
 ## More examples
 

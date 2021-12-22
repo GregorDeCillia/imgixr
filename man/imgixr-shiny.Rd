@@ -2,15 +2,20 @@
 % Please edit documentation in R/htmlwidgets.R
 \name{imgixr-shiny}
 \alias{imgixr-shiny}
+\alias{imgixr_as_widget}
 \alias{imgixrOutput}
 \alias{renderImgixr}
 \title{Shiny bindings for imgixr}
 \usage{
+imgixr_as_widget(x)
+
 imgixrOutput(outputId, width = "100\%", height = "400px")
 
 renderImgixr(expr, env = parent.frame(), quoted = FALSE)
 }
 \arguments{
+\item{x}{an object of class `imgixr`}
+
 \item{outputId}{output variable to read from}
 
 \item{width, height}{Must be a valid CSS unit (like \code{'100\%'},

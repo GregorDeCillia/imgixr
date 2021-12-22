@@ -97,6 +97,17 @@ knit_print.imgixr <- function(x, ...) {
   knitr::asis_output(as.character(html))
 }
 
+#' Download an image from the REST api
+#' @param x an object of class `imgixr`
+#' @param file destination path for `download.file`
+#' @export
+imgixr_download <- function(x, file) {
+  utils::download.file(
+    imgixr_get_url(x),
+    file
+  )
+}
+
 knit_print_imgxr_latex <- function(x, ...) {
   fig_path <- knitr::opts_chunk$get("fig.path")
   fig_name <- paste0(
@@ -105,10 +116,7 @@ knit_print_imgxr_latex <- function(x, ...) {
     substr(digest::digest(x), 1, 10),
     ".jpeg"
   )
-  utils::download.file(
-    imgixr_get_url(x),
-    fig_name
-  )
+  imgixr_download(x, fig_name)
   knitr::include_graphics(fig_name)
 }
 
