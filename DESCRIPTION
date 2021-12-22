@@ -1,4 +1,4 @@
-Package: imgixr
+Package: imgix
 Type: Package
 Title: Htmlwidgets Bindings for the Imgix Rendering API
 Version: 0.1.0

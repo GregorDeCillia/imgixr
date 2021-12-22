@@ -1,6 +1,6 @@
 #' Fetch images from the imgix rest api
 #'
-#' functions to load images using the imgixr rest api
+#' functions to load images using the imgix rest api
 #'
 #' @param img an url to an image or a numeric. If a numeric is given,
 #'   it is treated as an image id for pexels.com
@@ -10,29 +10,51 @@
 #' @inheritParams htmlwidgets::createWidget
 #' @examples
 #' # images from gregordecillia.github.io/pipedream
-#' imgixr(7417579)
-#' imgixr(268854)
-#' imgixr('https://images.pexels.com/photos/45848/kumamoto-japan-aso-cloud-45848.jpeg')
-#' imgixr(4203587)
-#' imgixr(2837863)
+#' imgix(7417579)
+#' imgix(268854)
+#' imgix('https://images.pexels.com/photos/45848/kumamoto-japan-aso-cloud-45848.jpeg')
+#' imgix(4203587)
+#' imgix(2837863)
 #'
-#' imgixr(4203587, txt = "hello", txt_size = 262, txt_color = "fff")
-#' imgixr(4203587, rot = 45)
-#' imgixr(4203587, blur = 50)
-#' imgixr(2837863, sepia = 50)
-#' imgixr(2837863, duotone = "191970,F08080", duotone_alpha = 60)
+#' imgix(4203587, txt = "hello", txt_size = 262, txt_color = "fff")
+#' imgix(4203587, rot = 45)
+#' imgix(4203587, blur = 50)
+#' imgix(2837863, sepia = 50)
+#' imgix(2837863, duotone = "191970,F08080", duotone_alpha = 60)
 #'
-#' imgixr(2339009)
-#' imgixr(2339009, invert = TRUE)
+#' imgix(2339009)
+#' imgix(2339009, invert = TRUE)
 #'
-#' imgixr("https://images.unsplash.com/photo-1459478309853-2c33a60058e7")
-#' imgixr("https://images.unsplash.com/photo-1523712999610-f77fbcfc3843")
-#' imgixr("https://images.unsplash.com/photo-1485345488606-f2ab4a113932")
+#' imgix("https://images.unsplash.com/photo-1459478309853-2c33a60058e7")
+#' imgix("https://images.unsplash.com/photo-1523712999610-f77fbcfc3843")
+#' imgix("https://images.unsplash.com/photo-1485345488606-f2ab4a113932")
 #'
-#' imgixr("https://assets.imgix.net/unsplash/hotairballoon.jpg")
+#' imgix("https://assets.imgix.net/unsplash/hotairballoon.jpg")
+#'
+#' imgix('https://static.imgix.net/espresso.jpg')
+#' imgix('https://static.imgix.net/treefrog.jpg')
+#' imgix('https://assets.imgix.net/examples/couple.jpg')
+#' imgix('https://assets.imgix.net/unsplash/umbrella.jpg')
+#' imgix('https://static.imgix.net/lorie.png')
+#' imgix('https://assets.imgix.net/trim-ex4.jpg')
+#' imgix('https://assets.imgix.net/trim-ex3.jpg')
+#' imgix('https://assets.imgix.net/trim-ex5.jpg')
+#' imgix('https://assets.imgix.net/examples/redleaf.jpg')
+#' imgix('https://assets.imgix.net/examples/blueberries.jpg')
+#' imgix('https://assets.imgix.net/examples/bluehat.jpg')
+#' imgix('https://assets.imgix.net/blog/unsplash-kiss.jpg')
+#' imgix('https://assets.imgix.net/examples/pione.jpg')
+#' imgix('https://assets.imgix.net/dog.jpg')
+#' imgix('https://assets.imgix.net/blog/woman-hat.jpg')
+#' imgix('https://assets.imgix.net/flower.jpg')
+#' imgix('https://assets.imgix.net/coffee.jpg')
+#' imgix('https://ix-www.imgix.net/solutions/kingfisher.jpg')
+#' imgix('https://ix-www.imgix.net/solutions/daisy.png')
+#'
+#' imgix(2526037)
 #' @import htmlwidgets
 #' @export
-imgixr <- function(
+imgix <- function(
   img,
   fit = c("crop", "clamp", "clip", "facearea", "fill", "fillmax", "max", "scale"),
   ...,
@@ -55,7 +77,7 @@ imgixr <- function(
   x$height = height
   x$width = width
   x$elementId <- elementId
-  structure(x, class = "imgixr")
+  structure(x, class = "imgix")
 }
 
 get_dimension <- function(value, key, default) {
@@ -66,7 +88,7 @@ get_dimension <- function(value, key, default) {
   default
 }
 
-imgixr_get_url <- function(x) {
+imgix_get_url <- function(x) {
   height <- x$height
   width <- x$width
   height <- get_dimension(height, "out.height", 400)
@@ -80,30 +102,30 @@ imgixr_get_url <- function(x) {
   )
 }
 
-imgixr_to_html <- function(x) {
+imgix_to_html <- function(x) {
   htmltools::tags$img(
-    src = paste0(imgixr_get_url(x)))
+    src = paste0(imgix_get_url(x)))
 }
 
 #' Show an image inside rmarkdown
 #' @param x an object of class `imgxr`
 #' @param ... further parameters passed down to other methods
 #' @export
-knit_print.imgixr <- function(x, ...) {
+knit_print.imgix <- function(x, ...) {
   pt <- knitr::pandoc_to()
   if (!is.null(pt) && pt == "latex")
     return(knit_print_imgxr_latex(x, ...))
-  html <- imgixr_to_html(x)
+  html <- imgix_to_html(x)
   knitr::asis_output(as.character(html))
 }
 
 #' Download an image from the REST api
-#' @param x an object of class `imgixr`
+#' @param x an object of class `imgix`
 #' @param file destination path for `download.file`
 #' @export
-imgixr_download <- function(x, file) {
+imgix_download <- function(x, file) {
   utils::download.file(
-    imgixr_get_url(x),
+    imgix_get_url(x),
     file
   )
 }
@@ -112,26 +134,26 @@ knit_print_imgxr_latex <- function(x, ...) {
   fig_path <- knitr::opts_chunk$get("fig.path")
   fig_name <- paste0(
     fig_path,
-    "imgixr-",
+    "imgix-",
     substr(digest::digest(x), 1, 10),
     ".jpeg"
   )
-  imgixr_download(x, fig_name)
+  imgix_download(x, fig_name)
   knitr::include_graphics(fig_name)
 }
 
 #' @export
-print.imgixr <- function(x, as_widget = TRUE, ...) {
+print.imgix <- function(x, as_widget = TRUE, ...) {
   if (as_widget) {
-    print(imgixr_as_widget(x))
+    print(imgix_as_widget(x))
   } else {
-    print(imgixr_to_html(x), browse = interactive(), ...)
+    print(imgix_to_html(x), browse = interactive(), ...)
   }
   invisible(x)
 }
 
-summary.imgixr <- function(x, ...) {
-  cat('An object of class imgixr\n\n')
+summary.imgix <- function(x, ...) {
+  cat('An object of class imgix\n\n')
   cat('- source:', x$url, "\n")
   cat("- query parameters: \n")
   n <- max(nchar(names(x$query)))
@@ -143,6 +165,6 @@ summary.imgixr <- function(x, ...) {
 #' Convert imgxr to a html tag
 #' @inheritParams htmltools::as.tags
 #' @export
-as.tags.imgixr <- function(x, ...) {
-  imgixr_to_html(x)
+as.tags.imgix <- function(x, ...) {
+  imgix_to_html(x)
 }

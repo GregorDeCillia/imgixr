@@ -1,5 +1,5 @@
 
-# Imgixr
+# Imgix
 
 [`{htmlwidgets}`](https://www.htmlwidgets.org/) bindings for the [imgix
 rendering API](https://docs.imgix.com/apis/rendering). Use images from
@@ -12,40 +12,40 @@ This package can be installed directly from github using the
 [`{remotes}`](https://remotes.r-lib.org/) package
 
 ``` r
-remotes::install_github("r-webutils/imgixr")
+remotes::install_github("r-webutils/imgix")
 ```
 
 ## Usage
 
-Images can be defined with the `imgxr()` function. You can either enter
-a full URL or an id from <https://pexels.com>.
+Images can be defined with the `imgx()` function. You can either enter a
+full URL or an id from <https://pexels.com>.
 
 ``` r
-library(imgixr)
-imgixr(2339009)
+library(imgix)
+imgix(2339009)
 ```
 
 <img src="https://images.pexels.com/photos/2339009/pexels-photo-2339009.jpeg?fit=crop&amp;h=415&amp;w=830"/>
 
 ``` r
-imgixr("https://images.unsplash.com/photo-1459478309853-2c33a60058e7")
+imgix("https://images.unsplash.com/photo-1459478309853-2c33a60058e7")
 ```
 
 <img src="https://images.unsplash.com/photo-1459478309853-2c33a60058e7?fit=crop&amp;h=415&amp;w=830"/>
 
 ## API Parameters
 
-API parameters can be passed directly to `imgixr()`. Underscores are
+API parameters can be passed directly to `imgix()`. Underscores are
 automatically converted to hyphens.
 
 ``` r
-imgixr(2422497, rot = 30)
+imgix(2422497, rot = 30)
 ```
 
 <img src="https://images.pexels.com/photos/2422497/pexels-photo-2422497.jpeg?fit=crop&amp;rot=30&amp;h=415&amp;w=830"/>
 
 ``` r
-imgixr(1529360, txt = "Enjoy the rain", txt_size = 100, txt_color = "ddd", 
+imgix(1529360, txt = "Enjoy the rain", txt_size = 100, txt_color = "ddd", 
        txt_align = "center,middle", blur = 20)
 ```
 
@@ -53,16 +53,16 @@ imgixr(1529360, txt = "Enjoy the rain", txt_size = 100, txt_color = "ddd",
 
 ## Shiny
 
-Use `renderImgixr()` to include images to your shiny application.
+Use `renderImgix()` to include images to your shiny application.
 
 ``` r
-output$imgixr <- renderImgixr({
-  imgixr_as_widget(imgixr(2339009))
+output$imgix <- renderImgix({
+  imgix_as_widget(imgix(2339009))
 })
 ```
 
 The sizing must be defined in the corresponding output function
-`imgixrOutput()`.
+`imgixOutput()`.
 
 ## Rendering Modes
 
@@ -74,10 +74,10 @@ on the context.
 The default mode. The widget is shown using the
 [`{htmlwidgets}`](https://www.htmlwidgets.org/) interface. Typical
 usecases are shiny applications and the rstudio viewer pane. Use
-`imgixr_as_widget()` to directly generate the widget object.
+`imgix_as_widget()` to directly generate the widget object.
 
 ``` r
-widget <- imgixr_as_widget(imgixr(2339009))
+widget <- imgix_as_widget(imgix(2339009))
 ```
 
 #### Mode 2: html tag
@@ -85,15 +85,15 @@ widget <- imgixr_as_widget(imgixr(2339009))
 The image is rendered to an html tag using the
 [`{htmltools}`](https://rstudio.github.io/htmltools/) package. The
 `htmltools::as.tag()` generic is implemented and returns an `<img>` tag.
-This means that `imgixr` objects can be embedded into `tagList`s and
+This means that `imgix` objects can be embedded into `tagList`s and
 other ui definitions that are built with the
 [`{htmltools}`](https://rstudio.github.io/htmltools/) package.
 
 ``` r
 htmltools::div(
-  imgixr(2745224, mask = "ellipse", width = 400, height = 400),
-  imgixr('https://images.pexels.com/photos/45848/kumamoto-japan-aso-cloud-45848.jpeg', 
-           mask = "ellipse", width = 400, height = 400)
+  imgix(2745224, mask = "ellipse", width = 400, height = 400),
+  imgix('https://images.pexels.com/photos/45848/kumamoto-japan-aso-cloud-45848.jpeg', 
+        mask = "ellipse", width = 400, height = 400)
 )
 ```
 
@@ -108,19 +108,19 @@ This mode is currently used for all html-based rmarkdown formats.
 
 The image is downloaded to a local image and referenced via a local
 path. For LaTeX-based rmarkdown formats. To directly download an image,
-use `imgixr_download()`
+use `imgix_download()`
 
 ``` r
-imgixr_download(imgixr(2339009), file = "awesome_picture.jpeg")
+imgix_download(imgix(2339009), file = "awesome_picture.jpeg")
 ```
 
 ## Palette
 
-`imgixr_palette()` allows you to extract the most dominant colors from
-an image.
+`imgix_palette()` allows you to extract the most dominant colors from an
+image.
 
 ``` r
-imgixr_palette(2339009)
+imgix_palette(2339009)
 ```
 
     ## [ imgixr color palette ]
@@ -131,13 +131,13 @@ imgixr_palette(2339009)
 
 ## Metadata
 
-To get metadata about an image, use `imgixr_meta()`
+To get metadata about an image, use `imgix_meta()`
 
 ``` r
-imgixr_meta(2422497)
+imgix_meta(2422497)
 ```
 
-    ## [ imgixr metadata ]
+    ## [ imgix metadata ]
     ## List of 15
     ##  $ ColorModel    : chr "RGB"
     ##  $ Exif          :List of 38
@@ -221,32 +221,32 @@ imgixr_meta(2422497)
 ## More examples
 
 The rendering API exposes a lot of parameters that can be used to modify
-images. All parameters to `imgixr()` are directly sent as query
+images. All parameters to `imgix()` are directly sent as query
 parameters to the API. See <https://docs.imgix.com/apis/rendering> for
 the full API documentation.
 
 ``` r
-imgixr('https://ix-www.imgix.net/solutions/kingfisher.jpg',
+imgix('https://ix-www.imgix.net/solutions/kingfisher.jpg',
        rect = '2100,600,1800,900')
 ```
 
 <img src="https://ix-www.imgix.net/solutions/kingfisher.jpg?fit=crop&amp;rect=2100,600,1800,900&amp;h=415&amp;w=830"/>
 
 ``` r
-imgixr('https://assets.imgix.net/trim-ex4.jpg', monochrome = 787878)
+imgix('https://assets.imgix.net/trim-ex4.jpg', monochrome = 787878)
 ```
 
 <img src="https://assets.imgix.net/trim-ex4.jpg?fit=crop&amp;monochrome=787878&amp;h=415&amp;w=830"/>
 
 ``` r
-imgixr("https://images.unsplash.com/photo-1523712999610-f77fbcfc3843", 
+imgix("https://images.unsplash.com/photo-1523712999610-f77fbcfc3843", 
        duotone = "000080,FA8072")
 ```
 
 <img src="https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?fit=crop&amp;duotone=000080,FA8072&amp;h=415&amp;w=830"/>
 
 ``` r
-imgixr(1048273, fit = "clip")
+imgix(1048273, fit = "clip")
 ```
 
 <img src="https://images.pexels.com/photos/1048273/pexels-photo-1048273.jpeg?fit=clip&amp;h=415&amp;w=830"/>

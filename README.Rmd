@@ -6,7 +6,7 @@ output: github_document
 knitr::opts_chunk$set(out.width = 830, out.height = 415)
 ```
 
-# Imgixr
+# Imgix
 
 [`{htmlwidgets}`] bindings for the [imgix rendering API].
 Use images from the API in your [`{shiny}`] apps and [`{rmarkdown}`] documents.
@@ -16,42 +16,42 @@ Use images from the API in your [`{shiny}`] apps and [`{rmarkdown}`] documents.
 This package can be installed directly from github using the [`{remotes}`] package
 
 ```r
-remotes::install_github("r-webutils/imgixr")
+remotes::install_github("r-webutils/imgix")
 ```
 
 ## Usage
 
-Images can be defined with the `imgxr()` function.
+Images can be defined with the `imgx()` function.
 You can either enter a full URL or an id from https://pexels.com.
 
 ```{r}
-library(imgixr)
-imgixr(2339009)
-imgixr("https://images.unsplash.com/photo-1459478309853-2c33a60058e7")
+library(imgix)
+imgix(2339009)
+imgix("https://images.unsplash.com/photo-1459478309853-2c33a60058e7")
 ```
 
 ## API Parameters
 
-API parameters can be passed directly to `imgixr()`.
+API parameters can be passed directly to `imgix()`.
 Underscores are automatically converted to hyphens.
 
 ```{r}
-imgixr(2422497, rot = 30)
-imgixr(1529360, txt = "Enjoy the rain", txt_size = 100, txt_color = "ddd", 
+imgix(2422497, rot = 30)
+imgix(1529360, txt = "Enjoy the rain", txt_size = 100, txt_color = "ddd", 
        txt_align = "center,middle", blur = 20)
 ```
 
 ## Shiny
 
-Use `renderImgixr()` to include images to your shiny application.
+Use `renderImgix()` to include images to your shiny application.
 
 ```r
-output$imgixr <- renderImgixr({
-  imgixr_as_widget(imgixr(2339009))
+output$imgix <- renderImgix({
+  imgix_as_widget(imgix(2339009))
 })
 ```
 
-The sizing must be defined in the corresponding output function `imgixrOutput()`.
+The sizing must be defined in the corresponding output function `imgixOutput()`.
 
 ## Rendering Modes
 
@@ -63,23 +63,23 @@ the context.
 The default mode.
 The widget is shown using the [`{htmlwidgets}`] interface.
 Typical usecases are shiny applications and the rstudio viewer pane.
-Use `imgixr_as_widget()` to directly generate the widget object.
+Use `imgix_as_widget()` to directly generate the widget object.
 
 ```{r}
-widget <- imgixr_as_widget(imgixr(2339009))
+widget <- imgix_as_widget(imgix(2339009))
 ```
 
 #### Mode 2: html tag
 
 The image is rendered to an html tag using the [`{htmltools}`] package.
 The `htmltools::as.tag()` generic is implemented and returns an `<img>` tag. 
-This means that `imgixr` objects can be embedded into `tagList`s and other ui definitions that are built with the [`{htmltools}`] package.
+This means that `imgix` objects can be embedded into `tagList`s and other ui definitions that are built with the [`{htmltools}`] package.
 
 ```{r}
 htmltools::div(
-  imgixr(2745224, mask = "ellipse", width = 400, height = 400),
-  imgixr('https://images.pexels.com/photos/45848/kumamoto-japan-aso-cloud-45848.jpeg', 
-           mask = "ellipse", width = 400, height = 400)
+  imgix(2745224, mask = "ellipse", width = 400, height = 400),
+  imgix('https://images.pexels.com/photos/45848/kumamoto-japan-aso-cloud-45848.jpeg', 
+        mask = "ellipse", width = 400, height = 400)
 )
 ```
 
@@ -89,42 +89,42 @@ This mode is currently used for all html-based rmarkdown formats.
 
 The image is downloaded to a local image and referenced via a local path.
 For LaTeX-based rmarkdown formats.
-To directly download an image, use `imgixr_download()`
+To directly download an image, use `imgix_download()`
 
 ```r
-imgixr_download(imgixr(2339009), file = "awesome_picture.jpeg")
+imgix_download(imgix(2339009), file = "awesome_picture.jpeg")
 ```
 
 ## Palette
 
-`imgixr_palette()` allows you to extract the most dominant colors from an image.
+`imgix_palette()` allows you to extract the most dominant colors from an image.
 
 ```{r}
-imgixr_palette(2339009)
+imgix_palette(2339009)
 ```
 
 ## Metadata
 
-To get metadata about an image, use `imgixr_meta()`
+To get metadata about an image, use `imgix_meta()`
 
 ```{r}
-imgixr_meta(2422497)
+imgix_meta(2422497)
 ```
 
 
 ## More examples
 
 The rendering API exposes a lot of parameters that can be used to modify images.
-All parameters to `imgixr()` are directly sent as query parameters to the API.
+All parameters to `imgix()` are directly sent as query parameters to the API.
 See https://docs.imgix.com/apis/rendering for the full API documentation.
 
 ```{r}
-imgixr('https://ix-www.imgix.net/solutions/kingfisher.jpg',
+imgix('https://ix-www.imgix.net/solutions/kingfisher.jpg',
        rect = '2100,600,1800,900')
-imgixr('https://assets.imgix.net/trim-ex4.jpg', monochrome = 787878)
-imgixr("https://images.unsplash.com/photo-1523712999610-f77fbcfc3843", 
+imgix('https://assets.imgix.net/trim-ex4.jpg', monochrome = 787878)
+imgix("https://images.unsplash.com/photo-1523712999610-f77fbcfc3843", 
        duotone = "000080,FA8072")
-imgixr(1048273, fit = "clip")
+imgix(1048273, fit = "clip")
 ```
 
 [imgix rendering API]: https://docs.imgix.com/apis/rendering
